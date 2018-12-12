@@ -392,6 +392,47 @@ detect_continue_minus=function(sumtemp){
     }
     return(list(first_hand,second_hand,third_hand,forth_hand))
   }
+  # 1211版本，横向（同一轨内）逆序、顺序轮换
+  data_sort_sequence_inverse_sequence=function(data=data,m,path=path){
+    n=nrow(data)
+    # 第一手：顺
+    {
+      first_hand=matrix(ncol = nrow(path))
+      for (i in seq(17,n,4)) {
+        first_hand_quantity=new_quantize(path,set = data[c(seq(i-16,i-2,2),i),m],Inverse = F)
+        first_hand=rbind(first_hand,first_hand_quantity)
+      }
+      first_hand=first_hand[-1,]
+    }
+    # 第二手：顺
+    { 
+      second_hand=matrix(ncol = nrow(path) )
+      for (i in seq(18,n,4)) {
+        second_hand_quantity=new_quantize(path,set = data[c(seq(i-16,i-2,2),i),m],Inverse = F)
+        second_hand=rbind(second_hand,second_hand_quantity)
+      }
+      second_hand=second_hand[-1,]
+    }
+    # 第三手：逆
+    {
+      third_hand=matrix(ncol = nrow(path))
+      for (i in seq(19,n,4)) {
+        third_hand_quantity=new_quantize(path,set = data[c(seq(i-2,i-16,-2),i),m],Inverse = T)
+        third_hand=rbind(third_hand,third_hand_quantity)
+      }
+      third_hand=third_hand[-1,]
+    }
+    # 第四手：逆
+    { 
+      forth_hand=matrix(ncol = nrow(path) )
+      for (i in seq(20,n,4)) {
+        forth_hand_quantity=new_quantize(path,set = data[c(seq(i-2,i-16,-2),i),m],Inverse = T)
+        forth_hand=rbind(forth_hand,forth_hand_quantity)
+      }
+      forth_hand=forth_hand[-1,]
+    }
+    return(list(first_hand,second_hand,third_hand,forth_hand))
+  }
 }
 run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
   library(stringr)
@@ -406,9 +447,13 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
   new_indexc1=matrix(nrow =length(data),ncol = n_path)
   new_indexc2=matrix(nrow =length(data),ncol = n_path)
   new_indexD=matrix(nrow =length(data),ncol = n_path)
+  new_indexE=matrix(nrow =length(data),ncol = n_path)
   for (m in 1:length(data)) {
     if(m%%50==0)print(m)
-    if(inverse & cross & reflection){
+    if(choice %in% c(12111,12112,12113,12114)){
+      temp=data_sort_sequence_inverse_sequence(data,m,path)
+    }
+    else if(inverse & cross & reflection){
       # 逆序+交叉+reflection
       print('未定义')
     }
@@ -440,6 +485,7 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
       # 顺序+不交叉+显现
       temp=data_sort_sequence_allsequence(data,m,path)
     }
+    
     # 1）初始化变量，以记录指标：
     {
       first=temp[[1]] # 奇数轨奇数行
@@ -464,7 +510,87 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
       decide_first=first[1:min_,]
       decide_second=second[1:min_,]
       
-      if (choice==1019&rolling==F) {
+      if (choice==12111&rolling==F) {
+        
+        third=ifelse(decide_first<0,third,-third)
+        forth=ifelse(decide_second<0,forth,-forth)
+        # 计算新指标AB:
+        patternA[seq(1,n_sumtemp,4),]=1
+        patternA[seq(2,n_sumtemp,4),]=2
+        patternA[seq(3,n_sumtemp,4),]=ifelse(decide_first<0,1,2)
+        patternA[seq(4,n_sumtemp,4),]=ifelse(decide_second<0,1,2)
+        
+        patternB[seq(1,n_sumtemp,4),]=2
+        patternB[seq(2,n_sumtemp,4),]=1
+        patternB[seq(3,n_sumtemp,4),]=ifelse(decide_first<0,2,1)
+        patternB[seq(4,n_sumtemp,4),]=ifelse(decide_second<0,2,1)
+        # 4个拼接到一个
+        sumtemp[seq(1,n_sumtemp,4),]=first
+        sumtemp[seq(2,n_sumtemp,4),]=second
+        sumtemp[seq(3,n_sumtemp,4),]=third
+        sumtemp[seq(4,n_sumtemp,4),]=forth
+      }
+      else if (choice==12112&rolling==F) {
+        
+        third=ifelse(decide_first>0,third,-third)
+        forth=ifelse(decide_second>0,forth,-forth)
+        # 计算新指标AB:
+        patternA[seq(1,n_sumtemp,4),]=1
+        patternA[seq(2,n_sumtemp,4),]=2
+        patternA[seq(3,n_sumtemp,4),]=ifelse(decide_first>0,1,2)
+        patternA[seq(4,n_sumtemp,4),]=ifelse(decide_second>0,1,2)
+        
+        patternB[seq(1,n_sumtemp,4),]=2
+        patternB[seq(2,n_sumtemp,4),]=1
+        patternB[seq(3,n_sumtemp,4),]=ifelse(decide_first>0,2,1)
+        patternB[seq(4,n_sumtemp,4),]=ifelse(decide_second>0,2,1)
+        # 4个拼接到一个
+        sumtemp[seq(1,n_sumtemp,4),]=first
+        sumtemp[seq(2,n_sumtemp,4),]=second
+        sumtemp[seq(3,n_sumtemp,4),]=third
+        sumtemp[seq(4,n_sumtemp,4),]=forth
+      }
+      else if (choice==12113&rolling==F) {
+        second=-second # 第二手固定使用相反的
+        third=ifelse(decide_first<0,third,-third)
+        forth=ifelse(decide_second>0,forth,-forth) # 第4手小于0时反一反
+        # 计算新指标AB:
+        patternA[seq(1,n_sumtemp,4),]=1
+        patternA[seq(2,n_sumtemp,4),]=2
+        patternA[seq(3,n_sumtemp,4),]=ifelse(decide_first<0,1,2)
+        patternA[seq(4,n_sumtemp,4),]=ifelse(decide_second>0,1,2)
+        
+        patternB[seq(1,n_sumtemp,4),]=2
+        patternB[seq(2,n_sumtemp,4),]=1
+        patternB[seq(3,n_sumtemp,4),]=ifelse(decide_first<0,2,1)
+        patternB[seq(4,n_sumtemp,4),]=ifelse(decide_second>0,2,1)
+        # 4个拼接到一个
+        sumtemp[seq(1,n_sumtemp,4),]=first
+        sumtemp[seq(2,n_sumtemp,4),]=second
+        sumtemp[seq(3,n_sumtemp,4),]=third
+        sumtemp[seq(4,n_sumtemp,4),]=forth
+      }
+      else if (choice==12114&rolling==F) {
+        second=-second # 第二手固定使用相反的
+        third=ifelse(decide_first>0,third,-third)
+        forth=ifelse(decide_second<0,forth,-forth)
+        # 计算新指标AB:
+        patternA[seq(1,n_sumtemp,4),]=1
+        patternA[seq(2,n_sumtemp,4),]=2
+        patternA[seq(3,n_sumtemp,4),]=ifelse(decide_first>0,1,2)
+        patternA[seq(4,n_sumtemp,4),]=ifelse(decide_second<0,1,2)
+        
+        patternB[seq(1,n_sumtemp,4),]=2
+        patternB[seq(2,n_sumtemp,4),]=1
+        patternB[seq(3,n_sumtemp,4),]=ifelse(decide_first>0,2,1)
+        patternB[seq(4,n_sumtemp,4),]=ifelse(decide_second<0,2,1)
+        # 4个拼接到一个
+        sumtemp[seq(1,n_sumtemp,4),]=first
+        sumtemp[seq(2,n_sumtemp,4),]=second
+        sumtemp[seq(3,n_sumtemp,4),]=third
+        sumtemp[seq(4,n_sumtemp,4),]=forth
+      }
+      else if (choice==1019&rolling==F) {
         second=-second
         # 判断是否是负负的，是的话3&4就使用（1，8），否则（8，1）
         # formula1和formula8表示两组against的formula，1为original，8为against
@@ -871,6 +997,9 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
       # 1还是2与横向前一手的正负相关，与“是否反一反”无关；正负还是与final result一样
       patternD=rbind(matrix(rep(1,8*2),ncol = 8),ifelse(symbol>0,2,1)[-c(nrow(symbol),nrow(symbol)-1),])
       new_indexD[m,]=colSums(patternD*symbol)
+      # 7、指标E：1、2手固定1；3，4手固定2，正负根据final result
+      patternE=matrix(rep(c(rep(c(1,1,2,2),n_sumtemp%/%4),c(1,1,2,2)[0:(n_sumtemp%%4)]),8),ncol = 8)
+      new_indexE[m,]=colSums(patternE*symbol)
     } 
     
   }
@@ -886,10 +1015,11 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
   # satisfy为某一个formula满足小于等于5的数据集个数：
   satisfy=apply(result[1:5,], 2, sum)
   return(list(minus_result,result,satisfy,plus,minus,
-              new_indexA,new_indexB,new_indexA1,new_indexB1,new_indexc1,new_indexc2,new_indexD))
+              new_indexA,new_indexB,new_indexA1,new_indexB1,
+              new_indexc1,new_indexc2,new_indexD,new_indexE))
 }
 # 2.6 展示函数
-present=function(result){
+present=function(result,index_c=T){
   print(result[[2]])
   cat('\n')
   final_result=rbind(round(apply(result[[6]], 2, function(x)sum(x>=0))/760,3),round(apply(result[[8]], 2, function(x)sum(x>=0))/760,3))
@@ -907,7 +1037,8 @@ present=function(result){
   final_result1=rbind(final_result1,colSums(result[[10]]))
   final_result1=rbind(final_result1,colSums(result[[11]]))
   final_result1=rbind(final_result1,colSums(result[[12]]))
-  row.names(final_result1)=c('quantity  ','A_sum','A1_sum','B_sum','B1_sum','plus','minus','C1_sum','C2_sum','D_sum')
+  final_result1=rbind(final_result1,colSums(result[[13]]))
+  row.names(final_result1)=c('quantity  ','A_sum','A1_sum','B_sum','B1_sum','plus','minus','C1_sum','C2_sum','D_sum','E_sum')
   first5_A=apply(result[[6]], 2, function(x)str_c(sort(x,decreasing = T)[1:5],collapse = ' '))
   last5_A=apply(result[[6]], 2, function(x)str_c(sort(x,decreasing = F)[1:5],collapse = ' '))
   first5_B=apply(result[[7]], 2, function(x)str_c(sort(x,decreasing = T)[1:5],collapse = ' '))
@@ -922,6 +1053,8 @@ present=function(result){
   last5_c2=apply(result[[11]], 2, function(x)str_c(sort(x,decreasing = F)[1:5],collapse = ' '))
   first5_d=apply(result[[12]], 2, function(x)str_c(sort(x,decreasing = T)[1:5],collapse = ' '))
   last5_d=apply(result[[12]], 2, function(x)str_c(sort(x,decreasing = F)[1:5],collapse = ' '))
+  first5_e=apply(result[[13]], 2, function(x)str_c(sort(x,decreasing = T)[1:5],collapse = ' '))
+  last5_e=apply(result[[13]], 2, function(x)str_c(sort(x,decreasing = F)[1:5],collapse = ' '))
   
   A=str_c(first5_A,last5_A,sep  = ';')
   B=str_c(first5_B,last5_B,sep  = ';')
@@ -930,14 +1063,24 @@ present=function(result){
   c1=str_c(first5_c1,last5_c1,sep  = ';')
   c2=str_c(first5_c2,last5_c2,sep  = ';')
   d=str_c(first5_d,last5_d,sep  = ';')
-  ss=data.frame(A=A,A1=A1,B=B,B1=B1,C1=c1,C2=c2,D=d)
+  e=str_c(first5_e,last5_e,sep  = ';')
+  ss=data.frame(A=A,A1=A1,B=B,B1=B1,C1=c1,C2=c2,D=d,E=e)
   row.names(ss)=c(paste0('formula',1:8))
   colnames(ss)=c('first&last5 of index A','first&last5 of index A1','first&last5 of index B','first&last5 of index B1',
-                 'first&last5 of index C1','first&last5 of index C2','first&last5 of index D')
-  print(ss)
-  cat('\n')
-  print(final_result)
-  print(final_result1)
+                 'first&last5 of index C1','first&last5 of index C2','first&last5 of index D','first&last5 of index E')
+  if(index_c){
+    print(ss)
+    cat('\n')
+    print(final_result)
+    print(final_result1)
+  }
+  else{
+    print(ss[c('first&last5 of index A','first&last5 of index A1','first&last5 of index B','first&last5 of index B1',
+               'first&last5 of index D','first&last5 of index E')])
+    cat('\n')
+    print(final_result)
+    print(final_result1[c('quantity  ','A_sum','A1_sum','B_sum','B1_sum','plus','minus','D_sum','E_sum'),])
+  }
 }
 
 # write.csv(as.data.frame(sumtemp[,2]),'C:\\Users\\Think\\Desktop\\1.csv',row.names = F)
@@ -957,3 +1100,13 @@ present(plan1019201_YAY579_inverse_cross)
 
 
 
+
+# plan1211-1~4=======================================================
+plan1211_1_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=12111,rolling=F,reflection=F,cross = F)
+present(plan1211_1_YAY579,index_c = F)
+plan1211_2_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=12112,rolling=F,reflection=F,cross = F)
+present(plan1211_2_YAY579,index_c = F)
+plan1211_3_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=12113,rolling=F,reflection=F,cross = F)
+present(plan1211_3_YAY579,index_c = F)
+plan1211_4_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=12114,rolling=F,reflection=F,cross = F)
+present(plan1211_4_YAY579,index_c = F)
