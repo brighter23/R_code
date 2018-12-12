@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544450022388.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "8|1|28|0|\n15|28|20|2|\n36|6|908|88|\n40|29|66|0|\n67|29|93|0|\n97|40|133|0|\n101|20|117|2|\n118|25|131|2|\n136|40|151|0|\n153|1|360|0|\n196|67|235|2|\n237|73|277|2|\n279|65|318|2|\n320|71|359|2|\n361|76|855|0|\n857|25|906|0|\n",
+    "hash" : "1830623147",
+    "id" : "1BFEDBCF",
+    "lastKnownWriteTime" : 1544515764,
+    "last_content_update" : 1544515764795,
+    "path" : "D:/Rpoject/money/round2/original357集成.R",
+    "project_path" : "original357集成.R",
+    "properties" : {
+        "cursorPosition" : "918,38",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
