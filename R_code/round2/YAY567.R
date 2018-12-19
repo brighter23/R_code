@@ -1000,7 +1000,7 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
   }
   
   colnames(minus_result)=c(paste0('formula',1:n_path))
-  # result存放满足连续负个数小于等于5的结果
+  # result存放连续负个数
   result=matrix(nrow =max(minus_result) ,ncol = n_path)
   for (i in 1:(max(minus_result))){
     result[i,]=apply(minus_result,2,function(x)sum(x==i))

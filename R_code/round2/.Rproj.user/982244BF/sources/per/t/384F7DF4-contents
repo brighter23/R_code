@@ -5,7 +5,7 @@ data2=read.csv('data\\new1.csv',header = T)
 data3=read.csv('data\\new2.csv',header = T)
 data1=data1[,-23]
 all_data=cbind(data,data1,data2,data3)
-# original357
+# YAY579
 {
   library(stringr)
   formula=read.csv2('data\\YAY579.csv',header = F,stringsAsFactors = F)
@@ -1005,7 +1005,7 @@ run=function(data=data,path=path,inverse=T,choice,rolling,reflection,cross){
   }
   
   colnames(minus_result)=c(paste0('formula',1:n_path))
-  # result存放满足连续负个数小于等于5的结果
+  # result存放最大连续负个数
   result=matrix(nrow =max(minus_result) ,ncol = n_path)
   for (i in 1:(max(minus_result))){
     result[i,]=apply(minus_result,2,function(x)sum(x==i))
@@ -1110,3 +1110,4 @@ plan1211_3_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=1
 present(plan1211_3_YAY579,index_c = F)
 plan1211_4_YAY579=run(data = all_data,path = path_BP_YAY579,inverse = F,choice=12114,rolling=F,reflection=F,cross = F)
 present(plan1211_4_YAY579,index_c = F)
+
