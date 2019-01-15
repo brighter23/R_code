@@ -143,7 +143,7 @@ detect_continue_minus=function(sumtemp){
         index=which(new_quantize_R88(R88,data[seq(i-8,i-1,1),m])>0)
       }
       # 计算 逆序前8手（到第i手）的final result,
-      final_result[i]=new_quantize_R88(R88,data[c(seq(i-1,i-7,-1),i),m])[,index]
+      final_result[i]=new_quantize_R88(R88,data[c(seq(i-2,i-8,-1),i),m])[,index]
       # 计算预测值
       pre[i,]=ifelse(final_result[i]>0,ifelse(data[i,m]=='B','B','P'),ifelse(data[i,m]=='B','P','B'))
     }
@@ -157,7 +157,7 @@ detect_continue_minus=function(sumtemp){
         index=which(new_quantize_R9(R9,data[seq(i-9,i-1,1),m])>0)
       }
       # 计算 逆序前9手（到第i手）的final result,
-      final_result[i]=new_quantize_R9(R9,data[c(seq(i-1,i-8,-1),i),m])[,index]
+      final_result[i]=new_quantize_R9(R9,data[c(seq(i-2,i-9,-1),i),m])[,index]
       # 计算预测值
       pre[i,]=ifelse(final_result[i]>0,ifelse(data[i,m]=='B','B','P'),ifelse(data[i,m]=='B','P','B'))
     }
@@ -175,7 +175,7 @@ detect_continue_minus=function(sumtemp){
         }
         # 计算 逆序前8手（到第i手）的final result,
         pre[i,]=data[i,m] #使用真实数据暂时替代未知的预测数据，以便计算使用的formula是否符合
-        final_result[i]=new_quantize_R88(R88,pre[c(seq(i-1,i-7,-1),i),])[,index]
+        final_result[i]=new_quantize_R88(R88,pre[c(seq(i-2,i-8,-1),i),])[,index]
         # 计算预测值
         pre[i,]=ifelse(final_result[i]>0,ifelse(data[i,m]=='B','B','P'),ifelse(data[i,m]=='B','P','B'))
       }
@@ -190,7 +190,7 @@ detect_continue_minus=function(sumtemp){
         }
         # 计算 逆序前9手（到第i手）的final result,
         pre[i,]=data[i,m] #使用真实数据暂时替代未知的预测数据，以便计算使用的formula是否符合
-        final_result[i]=new_quantize_R9(R9,pre[c(seq(i-1,i-8,-1),i),])[,index]
+        final_result[i]=new_quantize_R9(R9,pre[c(seq(i-2,i-9,-1),i),])[,index]
         # 计算预测值
         pre[i,]=ifelse(final_result[i]>0,ifelse(data[i,m]=='B','B','P'),ifelse(data[i,m]=='B','P','B'))
       }
@@ -216,7 +216,7 @@ detect_continue_minus=function(sumtemp){
         index=which(new_quantize_R88(R88,data[seq(i-8,i-1,1),m])>0)
       }
       # 计算 逆序前8手（到第i手）的final result,
-      final_result[i]=new_quantize_R88(R88,data[c(seq(i-1,i-7,-1),i),m])[,index]
+      final_result[i]=new_quantize_R88(R88,data[c(seq(i-2,i-8,-1),i),m])[,index]
     }
     # 偶数手：使用R9的formula进行2次判别
     for (i in seq(10,n,2)) {
@@ -228,7 +228,7 @@ detect_continue_minus=function(sumtemp){
         index=which(new_quantize_R9(R9,data[seq(i-9,i-1,1),m])>0)
       }
       # 计算 逆序前9手（到第i手）的final result,
-      final_result[i]=new_quantize_R9(R9,data[c(seq(i-1,i-8,-1),i),m])[,index]
+      final_result[i]=new_quantize_R9(R9,data[c(seq(i-2,i-9,-1),i),m])[,index]
     }
     # 2、去除无法计算final result的：
     final_result=final_result[-c(1:8),]
@@ -311,7 +311,7 @@ present=function(result){
   print(final_result1)
 }
 
-# write.csv(as.data.frame(sumtemp[,2]),'C:\\Users\\Think\\Desktop\\1.csv',row.names = F)
+# write.csv(as.data.frame(sumtemp[,1]),'C:\\Users\\Think\\Desktop\\1.csv',row.names = F)
 #######==================================================================================
 # plan1218-1
 plan1218_1_original=run(all_data,choice=12181,R88,R9,original=T)

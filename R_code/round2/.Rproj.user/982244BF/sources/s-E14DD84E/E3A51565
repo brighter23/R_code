@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547194048971.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "0|13|54|16|\n4|1|32|0|\n13|28|18|2|\n33|1|53|0|\n40|28|45|2|\n56|33|99|0|\n100|36|151|0|\n152|68|194|0|\n196|74|238|0|\n240|24|242|0|\n247|101|252|0|\n",
+    "hash" : "0",
+    "id" : "E3A51565",
+    "lastKnownWriteTime" : 1547201729,
+    "last_content_update" : 1547201729908,
+    "path" : "D:/Rpoject/money/round2/数据1024个片段.R",
+    "project_path" : "数据1024个片段.R",
+    "properties" : {
+        "cursorPosition" : "243,40",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

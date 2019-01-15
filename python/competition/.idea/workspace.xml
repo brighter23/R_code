@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="06ee2eb7-130c-4f89-9b3a-bf1a3b7a7087" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/天池_津南.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-225">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#1022#2031#0" />
+                <element signature="e#2126#3193#0" />
+                <element signature="e#3104#3142#0" />
+                <element signature="e#3231#3677#0" />
+                <element signature="e#3264#3353#0" />
+                <element signature="e#3428#3578#0" />
+                <element signature="e#3534#3578#0" />
+                <element signature="e#3715#4183#0" />
+                <element signature="e#3822#3953#0" />
+                <element signature="e#3859#3953#0" />
+                <element signature="e#3992#4160#0" />
+                <element signature="e#4235#4647#0" />
+                <element signature="e#4401#4624#0" />
+                <element signature="e#4685#11334#0" />
+                <element signature="e#4732#5353#0" />
+                <element signature="e#4749#5313#0" />
+                <element signature="e#5401#5852#0" />
+                <element signature="e#5913#6167#0" />
+                <element signature="e#5930#6127#0" />
+                <element signature="e#6216#6485#0" />
+                <element signature="e#6357#6460#0" />
+                <element signature="e#6568#8193#0" />
+                <element signature="e#7253#8171#0" />
+                <element signature="e#7361#7456#0" />
+                <element signature="e#7527#8076#0" />
+                <element signature="e#7559#7621#0" />
+                <element signature="e#8244#9427#0" />
+                <element signature="e#8259#8384#0" />
+                <element signature="e#8449#8581#0" />
+                <element signature="e#9021#9246#0" />
+                <element signature="e#9051#9246#0" />
+                <element signature="e#11407#12104#0" />
+                <element signature="e#11615#12031#0" />
+                <element signature="e#12148#13457#0" />
+                <element signature="e#12157#12628#0" />
+                <element signature="e#12850#13361#0" />
+                <element signature="e#13071#13202#0" />
+                <element signature="e#13229#13361#0" />
+                <element signature="e#14327#14482#0" />
+                <element signature="e#14522#14611#0" />
+                <element signature="e#14656#15779#1" />
+                <element signature="e#16175#16583#0" />
+                <element signature="e#16663#17530#0" />
+                <element signature="e#17915#18083#0" />
+                <element signature="e#18297#18934#0" />
+                <element signature="e#19429#19763#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>data</find>
+      <find>lgb</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>train</replace>
+      <replace>rf</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/score085.py" />
+        <option value="$PROJECT_DIR$/tempt.py" />
+        <option value="$PROJECT_DIR$/score7798.py" />
+        <option value="$PROJECT_DIR$/score7679.py" />
+        <option value="$PROJECT_DIR$/天池_津南.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-86" />
+    <option name="y" value="32" />
+    <option name="width" value="833" />
+    <option name="height" value="589" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06ee2eb7-130c-4f89-9b3a-bf1a3b7a7087" name="Default Changelist" comment="" />
+      <created>1546850562157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546850562157</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1563" height="855" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.06710964" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" id="R Packages" order="0" />
+      <window_info anchor="right" id="R Graphics" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info active="true" anchor="right" id="Python Console" order="5" visible="true" weight="0.34219268" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/score085.py" />
+    <entry file="file://$PROJECT_DIR$/tempt.py" />
+    <entry file="file://$USER_HOME$/Desktop/score085.py" />
+    <entry file="file://$PROJECT_DIR$/score081.py" />
+    <entry file="file://$PROJECT_DIR$/score7798.py" />
+    <entry file="file://$PROJECT_DIR$/天池_津南.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#1022#2031#0" />
+            <element signature="e#2126#3193#0" />
+            <element signature="e#3104#3142#0" />
+            <element signature="e#3231#3677#0" />
+            <element signature="e#3264#3353#0" />
+            <element signature="e#3428#3578#0" />
+            <element signature="e#3534#3578#0" />
+            <element signature="e#3715#4183#0" />
+            <element signature="e#3822#3953#0" />
+            <element signature="e#3859#3953#0" />
+            <element signature="e#3992#4160#0" />
+            <element signature="e#4235#4647#0" />
+            <element signature="e#4401#4624#0" />
+            <element signature="e#4685#11334#0" />
+            <element signature="e#4732#5353#0" />
+            <element signature="e#4749#5313#0" />
+            <element signature="e#5401#5852#0" />
+            <element signature="e#5913#6167#0" />
+            <element signature="e#5930#6127#0" />
+            <element signature="e#6216#6485#0" />
+            <element signature="e#6357#6460#0" />
+            <element signature="e#6568#8193#0" />
+            <element signature="e#7253#8171#0" />
+            <element signature="e#7361#7456#0" />
+            <element signature="e#7527#8076#0" />
+            <element signature="e#7559#7621#0" />
+            <element signature="e#8244#9427#0" />
+            <element signature="e#8259#8384#0" />
+            <element signature="e#8449#8581#0" />
+            <element signature="e#9021#9246#0" />
+            <element signature="e#9051#9246#0" />
+            <element signature="e#11407#12104#0" />
+            <element signature="e#11615#12031#0" />
+            <element signature="e#12148#13457#0" />
+            <element signature="e#12157#12628#0" />
+            <element signature="e#12850#13361#0" />
+            <element signature="e#13071#13202#0" />
+            <element signature="e#13229#13361#0" />
+            <element signature="e#14327#14482#0" />
+            <element signature="e#14522#14611#0" />
+            <element signature="e#14656#15779#1" />
+            <element signature="e#16175#16583#0" />
+            <element signature="e#16663#17530#0" />
+            <element signature="e#17915#18083#0" />
+            <element signature="e#18297#18934#0" />
+            <element signature="e#19429#19763#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
